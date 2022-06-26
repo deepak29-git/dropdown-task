@@ -3,10 +3,10 @@
     --white-color:#FFFFFF;
 }
 
-
-body{
+/* 
+*{
     color: white !important;
-}
+} */
 
 .gap{
     display: flex;

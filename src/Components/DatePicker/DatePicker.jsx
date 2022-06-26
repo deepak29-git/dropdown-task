@@ -9,6 +9,12 @@ const popperSx = {
     backgroundColor: "#334155",
     color: "#FFFFFF",
   },
+  "& .MuiTypography-root":{
+    color:"#FFFFFF",
+  },
+  "& .MuiSvgIcon-root":{
+    color:"#FFFFFF",
+  },
   "& .PrivatePickersSlideTransition-root": { color: "#FFFFFF" },
   "& .MuiPickersDay-dayWithMargin": {
     color: "#FFFFFF",
