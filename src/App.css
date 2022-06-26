@@ -1,0 +1,42 @@
+:root{
+    --primary-color:#334155;
+    --white-color:#FFFFFF;
+}
+
+
+body{
+    color: white !important;
+}
+
+.gap{
+    display: flex;
+    gap: 1rem;
+}
+
+.inner-container{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    height: 100%;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.datepicker-container{
+    margin-top: 1rem;
+
+}
+
+.center-text{
+    text-align: center;
+}
+
+.full-height{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    height: 45vh;
+}
+
