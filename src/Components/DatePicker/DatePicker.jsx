@@ -10,10 +10,10 @@ const popperSx = {
     color: "#FFFFFF",
   },
   "& .MuiTypography-root":{
-    color:"#FFFFFF",
+    color:"#9ca3af",
   },
   "& .MuiSvgIcon-root":{
-    color:"#FFFFFF",
+    color:"#9ca3af",
   },
   "& .PrivatePickersSlideTransition-root": { color: "#FFFFFF" },
   "& .MuiPickersDay-dayWithMargin": {
