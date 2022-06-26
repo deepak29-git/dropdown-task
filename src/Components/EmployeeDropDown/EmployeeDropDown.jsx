@@ -45,23 +45,33 @@ export const EmployeeDropDown = () => {
 
   const searchData = getSearch(data, search);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const { name, checked } = e.target;
-    if (name === "allSelect") {
-      const selectedUser = data.map((user) => ({
-        ...user,
-        isChecked: checked,
-      }));
-      setData(selectedUser);
-    } else {
-      const selectedUser = data.map((user) =>
-        user.name === name ? { ...user, isChecked: checked } : user
-      );
-      setData(selectedUser);
-    }
-  };
 
+    const handleChange = (e) => {
+      const { name, checked } = e.target;
+      if (name === "allSelect") {
+        const selectedUser = data.map((user) => ({
+          ...user,
+          isChecked: checked,
+        }));
+        setData(selectedUser);
+      }else if(name==="allPractitioners"){
+        const selectedUser = data.map((user) =>
+          user.practitioners ? { ...user, isChecked: checked } : user
+        );
+        setData(selectedUser);
+      }else if(name==="allAssistant"){
+         const selectedUser = data.map((user) =>
+          user.assistants ? { ...user, isChecked: checked } : user
+        );
+        setData(selectedUser);
+      }
+       else {
+        const selectedUser = data.map((user) =>
+          user.name === name ? { ...user, isChecked: checked } : user
+        );
+        setData(selectedUser);
+      }
+    };
   return (
     <div className="main-container">
       <FormControl sx={{ m: 1, width: 300 }}>
@@ -71,11 +81,15 @@ export const EmployeeDropDown = () => {
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
-          name="allSelect"
+          name="select employee"
           input={<OutlinedInput label="Select employee" />}
           MenuProps={MenuProps}
         >
-          <div className={searchData.length !== 0?"inner-container":"full-height"} >
+          <div
+            className={
+              searchData.length !== 0 ? "inner-container" : "full-height"
+            }
+          >
             <Input
               inputProps={{
                 sx: {
@@ -84,7 +98,6 @@ export const EmployeeDropDown = () => {
                   },
                 },
               }}
-              
               sx={{ m: 1, width: 300 }}
               style={{ color: "white" }}
               placeholder="Search employee"
@@ -93,14 +106,22 @@ export const EmployeeDropDown = () => {
             />
 
             <MenuItem>
-              <Checkbox
-                name="allSelect"
-                onChange={handleChange}
-                checked={
-                  data.filter((user) => user.isChecked !== true).length < 1
-                }
-              />
+              <Checkbox name="allSelect" onChange={handleChange} />
               <ListItemText primary="All employee" />
+            </MenuItem>
+            <MenuItem>
+              <Checkbox
+                name="allPractitioners"
+                onChange={handleChange}
+              />
+              <ListItemText primary="All practitioners" />
+            </MenuItem>
+            <MenuItem>
+              <Checkbox
+                name="allAssistant"
+                onChange={handleChange}
+              />
+              <ListItemText primary="All Assistant" />
             </MenuItem>
             {searchData.length === 0 ? (
               <h3 className="center-text">No Result</h3>
